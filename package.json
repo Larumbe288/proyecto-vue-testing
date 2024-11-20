@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@vee-validate/yup": "^4.14.7",
+    "axios": "^1.7.7",
     "git": "^0.1.5",
     "pinia": "^2.2.6",
     "vee-validate": "^4.14.7",
