@@ -4,7 +4,7 @@
     <Form :validation-schema="schema" @submit="onSubmit()">
       <div class="form">
         <label for="nombre">Nombre: </label>
-        <Field
+        <Field v-model="nombre"
           type="text"
           name="nombre"
           id="nombre"
@@ -14,7 +14,7 @@
       </div>
       <div class="form">
         <label for="email">E-mail: </label>
-        <Field
+        <Field v-model="email"
           type="email"
           name="email"
           id="email"
@@ -29,8 +29,16 @@
 <script setup>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import { schema } from "../schemas/ValidationSchema";
+import { useRegistarStore } from "../stores/registroStore";
+import { ref } from "vue";
+
+const registrarStore = useRegistarStore();
+
+const nombre = ref('');
+const email = ref('');
 
 const onSubmit = () => {
+  registrarStore.guardarRegistro(nombre.value,email.value);
   console.log("Se ha enviado el formulario");
 };
 </script>
